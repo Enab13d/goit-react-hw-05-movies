@@ -1,8 +1,8 @@
 import { findMovieById } from "constants/api";
 import { useState, useEffect, useRef, Suspense } from "react"
 import { Link, Outlet, useLocation, useParams } from "react-router-dom"
-
-// set obj location to complete goBack btn
+import { MovieCardWrapper } from "../MovieDetails/MovieDetails.styled";
+import { Loader } from 'components/Loader/Loader';
 
 const MovieDetails = () => {
     const [info, setInfo] = useState({});
@@ -31,8 +31,9 @@ const MovieDetails = () => {
     
     <>
       <Link to={backLocationRef.current ?? '/movies'}>Go back</Link>
-      <div>
-        {info.poster_path && <img src={`https://www.themoviedb.org/t/p/w600_and_h900_bestv2${info.poster_path}`} alt=""/>}
+      <MovieCardWrapper>
+         {info.poster_path && <img src={`https://www.themoviedb.org/t/p/w600_and_h900_bestv2${info.poster_path}`} alt={ info.title } width='360' />}
+        <div>
         <h1>{ info.title}</h1>
       <p>{`User score: ${Math.round(info.vote_average*10)}%`}</p>
       <h2>Overview</h2>
@@ -41,14 +42,15 @@ const MovieDetails = () => {
         <ul>
           {info.genres && info.genres.map(({ id, name }) => (<li key={id}>{name}</li>))}
       </ul>
-    </div>
+        </div>
+    </MovieCardWrapper>
     <div>
         <h4>Additional info</h4>
         <ul>
           <li><Link to='cast'>Cast</Link></li>
           <li><Link to='reviews'>Reviews</Link></li>
         </ul>
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<Loader/>}>
        <Outlet/>
         </Suspense>
       </div>

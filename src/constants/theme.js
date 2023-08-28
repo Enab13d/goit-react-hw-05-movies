@@ -1,7 +1,6 @@
 const breakpoints = [768, 1440];
 
-const mq = breakpoints.map(bp => `@media (min-width: ${bp}px)`);
-
+const mq = breakpoints.map(bp => `@media screen and (min-width: ${bp}px)`);
 
 export const theme = {
   animation: {
@@ -11,10 +10,9 @@ export const theme = {
   shadow: '2px 2px 4px 0px rgba(0,0,0,0.75);',
   colors: {
     movieCardBg: '#FF85AB',
-      white: '#fff',
+    white: '#fff',
     red: 'red',
   },
-    sizing: value => `${value * 4}px`,
-    mq,
+  sizing: value => `${value * 4}px`,
+  mq,
 };
-

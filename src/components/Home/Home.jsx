@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 import { getTrendingMovies } from 'constants/api';
 import { useLocation, Link } from 'react-router-dom';
-import { MovieList, MovieItem} from './Home.styled';
+import { MovieList, MovieItem } from './Home.styled';
+
 
 const Home = () => {
   const [movies, setMovies] = useState([]);
   const location = useLocation();
-  console.log(location);
   useEffect(() => {
     async function fetchData() {
       try {

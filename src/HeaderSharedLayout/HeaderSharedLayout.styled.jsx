@@ -4,10 +4,12 @@ import { NavLink } from 'react-router-dom';
 export const Container = styled.div`
   padding: 0 ${theme.sizing(3)};
   width: 100%;
-  ${theme.mq[0]}: {
+  ${theme.mq[0]} {
     width: 768px;
+    margin-left: auto;
+    margin-right: auto;
   }
-  ${theme.mq[1]}: {
+  ${theme.mq[1]} {
     width: 1440px;
   }
 `;
