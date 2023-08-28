@@ -5,10 +5,9 @@ import { App } from 'components/App';
 import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+  <React.StrictMode basename='https://enab13d.github.io/goit-react-hw-05-movies'>
     <BrowserRouter>
         <App />
     </BrowserRouter>
   </React.StrictMode>
 );
-// basename='https://enab13d.github.io/goit-react-hw-05-movies'
