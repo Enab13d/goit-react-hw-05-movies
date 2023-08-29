@@ -9,10 +9,12 @@ const Reviews = () => {
 
   useEffect(() => {
     async function fetchData() {
-        try {
-            const response = await getMovieReviews(movieId);
-            const { data: { results } } = response;
-          setReviews(results);
+      try {
+        const response = await getMovieReviews(movieId);
+        const {
+          data: { results },
+        } = response;
+        setReviews(results);
       } catch (error) {
         console.log(error);
       }
@@ -22,14 +24,16 @@ const Reviews = () => {
 
   return (
     <ul>
-      {reviews.length ?
+      {reviews.length ? (
         [...reviews].flatMap(({ author, content, id }) => (
           <Review key={id}>
             <h4>{author}</h4>
             <p>{content}</p>
           </Review>
-        )) :
-        <p>We don't have any reviews for this movie.</p>}
+        ))
+      ) : (
+        <p>We don't have any reviews for this movie.</p>
+      )}
     </ul>
   );
 };

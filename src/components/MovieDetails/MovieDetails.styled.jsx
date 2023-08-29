@@ -1,14 +1,13 @@
-import styled from "@emotion/styled";
-import { theme } from "constants";
-import { Link } from "react-router-dom";
-
+import styled from '@emotion/styled';
+import { theme } from 'constants';
+import { Link } from 'react-router-dom';
 
 export const MovieCardWrapper = styled.div`
   ${theme.mq[0]} {
     display: flex;
     column-gap: ${theme.sizing(4)};
   }
-`
+`;
 export const ButtonLink = styled(Link)`
   display: block;
   width: 100px;
@@ -24,11 +23,11 @@ export const ButtonLink = styled(Link)`
   &:focus {
     background-color: ${theme.colors.black};
   }
-`
+`;
 export const BtnLinkWrapper = styled.ul`
-display: flex;
-column-gap: ${theme.sizing(2)};
-`
+  display: flex;
+  column-gap: ${theme.sizing(2)};
+`;
 export const GoBackBtn = styled(Link)`
   display: inline-flex;
   justify-content: space-between;
@@ -46,5 +45,4 @@ export const GoBackBtn = styled(Link)`
   &:focus {
     background-color: ${theme.colors.black};
   }
-
-`
+`;

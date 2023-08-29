@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { findMovieByName } from 'constants/api';
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import { MovieList, MovieItem } from '../Home/Home.styled';
@@ -6,10 +6,11 @@ import { SearchInput, SearchBtn, SearchForm } from './Movies.styled';
 
 const Movies = () => {
   const [movies, setMovies] = useState([]);
-
   const location = useLocation();
   const [searchParams, setSearchParams] = useSearchParams();
   const [query, setQuery] = useState(() => searchParams.get('query') ?? '');
+  const queryRef = useRef(query);
+  const [inpuValue, setInpuValue] = useState(queryRef.current ?? '');
 
   useEffect(() => {
     if (!query) {
@@ -37,14 +38,21 @@ const Movies = () => {
       name: { value },
     } = e.currentTarget;
     setQuery(value);
+    queryRef.current = value;
 
-    e.target.reset();
+    // e.target.reset();
   };
 
   return (
     <div>
       <SearchForm onSubmit={onSubmit}>
-        <SearchInput name="name" type="text" autoComplete="off" />
+        <SearchInput
+          name="name"
+          type="text"
+          autoComplete="off"
+          onChange={e => setInpuValue(e.target.value)}
+          value={inpuValue}
+        />
         <SearchBtn type="submit"></SearchBtn>
       </SearchForm>
       {movies.length > 0 && (
@@ -63,4 +71,3 @@ const Movies = () => {
 };
 
 export default Movies;
-// replace index in map method with id from object in iterable array

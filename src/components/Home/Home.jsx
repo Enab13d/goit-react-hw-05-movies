@@ -3,7 +3,6 @@ import { getTrendingMovies } from 'constants/api';
 import { useLocation, Link } from 'react-router-dom';
 import { MovieList, MovieItem } from './Home.styled';
 
-
 const Home = () => {
   const [movies, setMovies] = useState([]);
   const location = useLocation();
@@ -28,12 +27,12 @@ const Home = () => {
       <MovieList>
         {movies.length > 0 &&
           movies.map(({ title, id }) => (
-          <MovieItem key={id}>
-            <Link to={`/movies/${id}`} state={{ from: location }}>
-              {title}
-            </Link>
-          </MovieItem>
-        ))}
+            <MovieItem key={id}>
+              <Link to={`/movies/${id}`} state={{ from: location }}>
+                {title}
+              </Link>
+            </MovieItem>
+          ))}
       </MovieList>
     </>
   );

@@ -12,7 +12,7 @@ export const theme = {
     movieCardBg: '#FF85AB',
     white: '#fff',
     red: 'red',
-    black: '#2b2b2b'
+    black: '#2b2b2b',
   },
   sizing: value => `${value * 4}px`,
   mq,
