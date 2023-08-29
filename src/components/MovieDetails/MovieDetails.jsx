@@ -1,6 +1,6 @@
 import { findMovieById } from "constants/api";
 import { useState, useEffect, useRef, Suspense } from "react"
-import { Link, Outlet, useLocation, useParams } from "react-router-dom"
+import { Outlet, useLocation, useParams } from "react-router-dom"
 import { MovieCardWrapper, ButtonLink, BtnLinkWrapper, GoBackBtn } from "../MovieDetails/MovieDetails.styled";
 import { Loader } from 'components/Loader/Loader';
 import { Placeholder } from "components/Cast/Cast.styled";
