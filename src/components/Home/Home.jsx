@@ -26,7 +26,8 @@ const Home = () => {
     <>
       <h2>Trending Today</h2>
       <MovieList>
-        {movies.map(({ title, id }) => (
+        {movies.length > 0 &&
+          movies.map(({ title, id }) => (
           <MovieItem key={id}>
             <Link to={`/movies/${id}`} state={{ from: location }}>
               {title}

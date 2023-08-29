@@ -8,3 +8,4 @@ export const MovieCardWrapper = styled.div`
     column-gap: ${theme.sizing(4)};
   }
 `
+

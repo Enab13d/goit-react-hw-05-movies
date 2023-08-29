@@ -1,6 +1,7 @@
 import { getMovieReviews } from 'constants/api';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { Review } from './Reviews.styled';
 
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
@@ -23,10 +24,10 @@ const Reviews = () => {
     <ul>
       {reviews.length ?
         [...reviews].flatMap(({ author, content, id }) => (
-          <li key={id}>
+          <Review key={id}>
             <h4>{author}</h4>
             <p>{content}</p>
-          </li>
+          </Review>
         )) :
         <p>We don't have any reviews for this movie.</p>}
     </ul>

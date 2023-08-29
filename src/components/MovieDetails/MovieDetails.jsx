@@ -32,7 +32,7 @@ const MovieDetails = () => {
     <>
       <Link to={backLocationRef.current ?? '/movies'}>Go back</Link>
       <MovieCardWrapper>
-         {info.poster_path && <img src={`https://www.themoviedb.org/t/p/w600_and_h900_bestv2${info.poster_path}`} alt={ info.title } width='360' />}
+         <img src={`https://www.themoviedb.org/t/p/w600_and_h900_bestv2${info.poster_path}`} alt={ info.title } width='360' />
         <div>
         <h1>{ info.title}</h1>
       <p>{`User score: ${Math.round(info.vote_average*10)}%`}</p>

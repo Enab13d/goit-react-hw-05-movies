@@ -40,7 +40,6 @@ const Movies = () => {
 
     e.target.reset();
   };
-  console.log(location);
 
   return (
     <div>
@@ -48,7 +47,7 @@ const Movies = () => {
         <SearchInput name="name" type="text" autoComplete="off" />
         <SearchBtn type="submit"></SearchBtn>
       </SearchForm>
-      {movies && (
+      {movies.length > 0 && (
         <MovieList>
           {movies.map(({ title, id }, idx) => (
             <MovieItem key={idx}>
